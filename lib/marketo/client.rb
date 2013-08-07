@@ -209,7 +209,8 @@ module Rapleaf
           return nil
         end
       end
-
+      
+      public
       def get_lead(lead_key)
         begin
           response = send_request("ns1:paramsGetLead", {:lead_key => lead_key.to_hash})
@@ -219,7 +220,8 @@ module Rapleaf
           return nil
         end
       end
-
+      
+      private 
       def send_request(namespace, body)
         @header.set_time(DateTime.now)
         response = request(namespace, body, @header.to_hash)
